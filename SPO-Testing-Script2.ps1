@@ -1,5 +1,5 @@
 ﻿$PSVersionTable
-Get-Module -Name Microsoft.Online.SharePoint.Powershell -ListAvailable | select name, version
+Get-Module -Name Microsoft.Online.SharePoint.Powershell -ListAvailable | Select-Object name, version
 Install-Module -Name Microsoft.Online.SharePoint.PowerShell -Scope CurrentUser -Force
 Import-Module -Name SPOService
 Connect-SPOService -url nbsctcuk-admin.sharepoint.com
@@ -26,7 +26,7 @@ Get-SPOTenant| Export-AzDataLakeStoreChildItemProperties
 Get-SPOTenant | Select-Object CoreOrganizationSharingLinkMaxExpirationInDays, OneDriveOrganizationSharingLinkMaxExpirationInDays, CoreOrganizationSharingLinkRecommendedExpirationInDays, OneDriveOrganizationSharingLinkRecommendedExpirationInDays
 
 
-Get-SPOTenant | ft Export-Csv C:\Temp\SharingLinksExport\CTC.csv
+Get-SPOTenant | Format-Table Export-Csv C:\Temp\SharingLinksExport\CTC.csv
 
 
 Set-SPOTenant -CoreOrganizationSharingLinkMaxExpirationInDays 720
